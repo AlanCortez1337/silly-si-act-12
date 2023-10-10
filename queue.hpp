@@ -11,15 +11,33 @@ public:
 
     void push(T value)
     {
+        auto place = (front_ + size_) % container_.capacity();
+        if (container_.capacity == size_)
+        (
+            container_.push_back(value);
+        ) else {
+            container_[place] = value;
+        }
+        
+        ++size_;
     }
 
     void pop()
     {
+        container_.erase(front);
+        if (front != size_ -1) 
+        {
+            ++front;
+        } else (
+            front = 0;
+        )
+        --size_;
     }
 
     // 💡TIP: in this implementation lets return the value so that we can print it in main.cpp
     T front()
     {
+        
     }
 
     T back()
@@ -29,4 +47,5 @@ public:
 private:
     std::vector<T> container_;
     std::size_t size_;
+    std::size_t front_;
 };
