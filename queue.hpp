@@ -11,19 +11,24 @@ public:
 
     void push(T value)
     {
+        container_.push_back(value);
     }
 
     void pop()
     {
+        container_.erase(front);
+    
     }
 
     // 💡TIP: in this implementation lets return the value so that we can print it in main.cpp
     T front()
     {
+        front = (front + 1) % container_.capacity();
     }
 
     T back()
     {
+        back = (front + size_) % container_.capacity();
     }
 
 private:
