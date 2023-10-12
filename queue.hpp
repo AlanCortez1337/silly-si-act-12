@@ -11,10 +11,26 @@ public:
 
     void push(T value)
     {
+        std::size_t rear_ = (front_ + size_) % container_.capacity;
+
+        if(container_.capacity === size_) {
+            std::vector<T> tempVect = {};
+            
+            std::size_t index = front_
+            while()
+        } else {
+            container_.at(rear_) = value;
+        }
+
+        size_++;
+
     }
 
     void pop()
     {
+        std::size_t front_ = (front_ + 1) % container_.capacity;
+
+
     }
 
     // 💡TIP: in this implementation lets return the value so that we can print it in main.cpp
@@ -29,4 +45,5 @@ public:
 private:
     std::vector<T> container_;
     std::size_t size_;
+    std::size_t front_;
 };
