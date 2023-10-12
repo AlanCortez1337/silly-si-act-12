@@ -37,11 +37,13 @@ public:
     // 💡TIP: in this implementation lets return the value so that we can print it in main.cpp
     T front()
     {
-        
+      front_ = (front_ + 1) % container_.capacity();
+      return front_;   
     }
 
     T back()
     {
+       return front_ + size_ % container_.capacity();
     }
 
 private:
