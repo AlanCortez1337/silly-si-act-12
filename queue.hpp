@@ -27,14 +27,14 @@ public:
 
     void pop()
     {
-        container_.erase(front);
-        if(front != size_ - 1)
+        container_.erase(front_);
+        if(front_ != size_ - 1)
         {
-            ++front;
+            ++front_;
         }
         else
         {
-            front = 0;
+            front_ = 0;
         }
         --size_;
     }
@@ -42,11 +42,12 @@ public:
     // 💡TIP: in this implementation lets return the value so that we can print it in main.cpp
     T front()
     {
-
+        return (front_ + 1) % container_.capacity;
     }
 
     T back()
     {
+        return (front_ + size_) % container_.capacity;
     }
 
 private:
